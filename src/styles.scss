@@ -1,0 +1,53 @@
+$yellow-base-color: #FFE600;
+$black-base-color: #333333;
+$grey-dark-base-color: #666666;
+$grey-medium-base-color: #999999;
+$grey-light-base-color: #EEEEEE;
+$blue-base-color: #3483FA;
+
+@mixin global-c {
+    width: 75%;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+}
+
+html, body {
+    background-color: $grey-light-base-color;
+    color: $black-base-color;
+}
+
+.custom-blue-btn{
+    padding: 10px 20px;
+    background-color: $blue-base-color;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+}
+
+.custom-spinner{
+    margin: 10px auto;
+    color: $grey-medium-base-color;
+}
+
+.alert-container{
+    width: 45%;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.color-grey-dark{
+    color: $grey-dark-base-color;
+}
+
+.color-grey-medium{
+    color: $grey-medium-base-color;
+}
+
+@media (hover: none) {
+    .alert-container{
+        width: 90%;
+    }
+}

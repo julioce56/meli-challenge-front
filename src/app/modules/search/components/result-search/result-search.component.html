@@ -1,0 +1,31 @@
+<div id="result-search_spinner" class="text-center custom-spinner" *ngIf="!processProductsFinish">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <br>
+    <small>Cargando productos...</small>
+</div>
+<div id="result-search_global-container" class="global-container container-fluid" *ngIf="data.length !== 0">
+    <div class="item-container" *ngFor="let item of data; let i = index">
+        <div class="row">
+            <div class="col-sm-12 item-row-container">
+                <img class="product-image lazyload" [lazy-src]="item.picture" [alt]="'Imagen ' + item.title" (click)="goToProductDetail(item.id)" *ngIf="item.picture">
+                <img class="product-image lazyload" src="assets/images/not_image.png" [alt]="'Imagen ' + item.title" (click)="goToProductDetail(item.id)" *ngIf="!item.picture">
+                <div [id]="'result-search_info-item-container' + i" class="info-item-container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h5 class="text-price">$ {{ item.price.amount | number: '1.0-0' }} <img class="shipping-icon lazyload"
+                                src="assets/icons/ic_shipping@2x.png.png" alt="Icono meli envío gratis" *ngIf="item.free_shipping"></h5>
+                            <p class="text-title" (click)="goToProductDetail(item.id)">{{ item.title }}</p>
+                            <p class="text-title">{{ item.condition === 'new' ? 'Nuevo' : item.condition | titlecase }}</p>
+                        </div>
+                        <div class="col-sm-4 item-seller-container">
+                            <small class="text-seller">{{ item.seller_state }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-alert *ngIf="processProductsFinish && data.length === 0" [title]="alertTitle" [subtitle]="alertSubtitle"></app-alert>

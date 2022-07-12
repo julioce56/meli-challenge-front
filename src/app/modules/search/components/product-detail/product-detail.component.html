@@ -1,0 +1,32 @@
+<div id="product-detail_spinner" class="text-center custom-spinner" *ngIf="!processProductsFinish">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <br>
+    <small>Cargando producto...</small>
+</div>
+<div id="product-detail_global-container" class="global-container container-fluid" *ngIf="data">
+    <div class="row" *ngIf="data">
+        <div class="col-sm-8 product-image-container">
+            <img id="product-detail_product-image" class="product-image" [src]="data.picture" alt="Imagen del producto">
+        </div>
+        <div id="product-detail_info-container" class="col-sm-4 info-container">
+            <small class="sold-text">{{ data.condition === 'new' ? 'Nuevo' : data.condition | titlecase }} - 
+                {{ data.sold_quantity | number:'1.0-0' }} vendidos</small>
+            <h1 class="title-text">
+                {{ data.title }}
+            </h1>
+            <h1 class="title-text price-text">
+                $ {{ data.price.amount | number:'1.0-0' }}
+            </h1>
+            <button class="custom-blue-btn">Comprar</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="data">
+        <div id="product-detail_description-container" class="col-sm-8 description-container">
+                <h2 class="title-description-text">Descripción del producto</h2>
+                <p>{{ data.description }}</p>
+        </div>
+    </div>
+</div>
+<app-alert *ngIf="processProductsFinish && !data" [title]="alertTitle" [subtitle]="alertSubtitle"></app-alert>

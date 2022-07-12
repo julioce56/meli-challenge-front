@@ -1,0 +1,68 @@
+@import '../../../../../styles';
+
+.global-container {
+    @include global-c;
+}
+
+.product-image-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.info-container{
+    padding: 32px 32px 32px 0px;
+}
+
+.sold-text{
+    color: $grey-dark-base-color;
+}
+
+.title-text{
+    margin-top: 16px;
+    margin-bottom: 0px;
+    font-size: 24px;
+    padding-bottom: 32px;
+}
+
+.price-text{
+    margin: 0px;
+    font-size: 46px;
+    padding-bottom: 32px;
+}
+
+.description-container{
+    text-align: justify;
+    font-size: 16px;
+    color: $grey-medium-base-color;
+    padding-left: 32px;
+    padding-bottom: 32px;
+}
+
+.title-description-text{
+    font-size: 28px;
+    padding-bottom: 32px;
+    color: $black-base-color;
+}
+
+@media (hover: none)  {
+    .global-container {
+        width: 90%;
+    }
+
+    .product-image {
+        width: inherit;
+    }
+
+    .info-container{
+        padding: 20px;
+    }
+
+    .description-container{
+        padding: 20px;
+    }
+
+    .title-description-text{
+        text-align: left;
+    }
+}

@@ -1,0 +1,21 @@
+<div id="user-search_container" class="search-container">
+    <form [formGroup]="formSearch">
+        <div class="input-group input-group-sm mb-3 custom-box-search">
+            <img class="meli-logo" src="assets/logos/Logo_ML.png" alt="Logo Mercado Libre" [routerLink]="['/']" routerLinkActive="router-link-active" >
+            <input #searchInp id="user-search_input-search" type="text" name="search" class="form-control search-input" placeholder="Nunca dejes de buscar" aria-label="Buscador de productos"
+            aria-describedby="search_input" (keyup.enter)="goToSearch()" formControlName="search">
+            <span id="user-search_btn-search" class="input-group-text" id="search_input" [ngStyle]="{'cursor': 'pointer'}" (click)="goToSearch()">
+                <img src="assets/icons/ic_Search@2x.png.png" width="15px" alt="Icono de busqueda">
+            </span>
+        </div>     
+    </form>
+</div>
+<div id="user-search_categories-container" class="categories-container">
+    <small class="category-link" *ngFor="let cat of categories; let i = index" (click)="goToSearch(cat)">{{ cat }}<small class="category-separator" *ngIf="i < (categories.length - 1)"> > </small></small>
+</div>
+<div id="user-search_search-img-container" class="search-img-container" *ngIf="showImage">
+    <img class="search-img" src="assets/images/start_search_01_meli.png" alt="Imagen de búsqueda">
+    <h2 class="color-grey-medium">¿Que estás esperando</h2>
+    <h1>para empezar a SOÑAR?</h1>
+</div>
+<router-outlet></router-outlet>
